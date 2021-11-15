@@ -25,7 +25,9 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = 'cmwsi304r!fo%-+ujih@lv1mc^zez_sup@)qix**0fg9^8vazc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
 
 ALLOWED_HOSTS = ['nemesis-consultants.herokuapp.com', '127.0.0.1']
 

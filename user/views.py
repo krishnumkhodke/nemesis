@@ -29,8 +29,6 @@ def signUp(request):
 	return render(request, 'users/signup.html', {'form' : form})
 
 def allUsers(request):
-	u = User.objects.get(id = 19)
-	print(u.profile.address, '<<')
 	data = Profile.objects.all()
 	return render(request, 'users/all_users.html', {'profiles' : data})	
 
