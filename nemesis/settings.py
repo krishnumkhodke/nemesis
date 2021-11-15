@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 from pathlib import Path
 from django.contrib.messages import constants as messages
 import os
+import django heroku
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 
@@ -100,10 +101,10 @@ WSGI_APPLICATION = 'nemesis.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'test',
-        'USER': 'postgres',
-        'PASSWORD': 'admin123456789',
-        'HOST': 'localhost',
+        'NAME': 'd64e8ldj6fiilt',
+        'USER': 'wsueiwvsteugkn',
+        'PASSWORD': 'b6527eb0d30b7be49e2e4811bc7cf692f81a639cbebea730db0d34c3dd7c4235',
+        'HOST': 'ec2-52-19-164-214.eu-west-1.compute.amazonaws.com',
         'POSRT': '5432'
     }
 }
@@ -147,3 +148,4 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+django_heroku.settings(locals())
