@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+	<!-- Button trigger modal -->
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">edit </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST">
+			{% csrf_token %}
+			<div class="container">
+    		{{ form|crispy }}
+          <br>
+        	<button type="submit" class="btn btn-primary">Submit</button>
+  			</div>
+		</form>
+      </div>
+      
+    </div>
+  </div>
+</div>
+	<div class="container">
+
+	<table class="table">
+  		<thead>
+    		<tr>
+      		<th scope="col">#</th>
+      		<th scope="col">Field</th>
+      		<th scope="col">Value</th>
+      		<th scope="col">Edit</th>
+    		</tr>
+  		</thead>
+  		<tbody>
+    		<tr>
+      		<th scope="row">1</th>
+      		<td>Username </td>
+      		<td>{{ user.username }}</td>
+      		<td><a href="{% url 'EditUserDetail' user.id 'username' %}"><button class="btn btn-secondary">edit</button></a></td>
+    		</tr>
+    	<tr>
+      		<th scope="row">2</th>
+      		<td>Email</td>
+      		<td>{{ user.email }}</td>
+      		<td><a href="{% url 'EditUserDetail' user.id 'email' %}"><button class="btn btn-secondary">edit</button></a></td>
+    	</tr>
+    	<tr>
+      		<th scope="row">3</th>
+      		<td>Address</td>
+      		<td>{{ user.profile.address }}</td>
+      		<td><a href="{% url 'EditUserDetail' user.id 'address' %}"><button class="btn btn-secondary">edit</button></a></td>
+    	</tr>
+  		</tbody>
+	</table>
+
+	
+	<a href="{% url 'DeleteUser' user.id %}"><button class="btn btn-danger">delete User</button></a>		
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Edit Profile
+</button>
+
+
+	</div>
+
+{% endblock %}

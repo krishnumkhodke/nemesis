@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	
+	<form method="POST">
+		{% csrf_token %}
+		<div class="container">
+    	<div class="mb-3">
+            <label for="new_data" class="form-label"> New value </label>
+            <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="new_data">
+        </div>
+
+        <a href="{% url 'UserDetail' user.id %}"><button type="submit" class="btn btn-primary">Save and back</button></a>
+  	</div>
+	</form>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<div class="row">
+	{% for p in profiles %}
+		
+		
+		<div class="card col-3 my-5 mx-5" style="width: 18rem;">
+  		<ul class="list-group list-group-flush">
+    	<a href="{% url 'UserDetail' p.user.id %}"><li class="list-group-item"><b>username : {{ p.user }}</b></li></a>
+    	<li class="list-group-item">email : {{ p.user.email }}</li>
+    	<li class="list-group-item">address : {{ p.address }}</li>
+  		</ul>
+		</div>
+	{% endfor %}
+		</div>
+{% endblock %}
